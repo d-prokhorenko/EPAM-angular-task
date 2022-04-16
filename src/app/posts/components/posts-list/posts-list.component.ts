@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Data } from '../../models/data.model';
 
 @Component({
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
-  styleUrls: ['./posts-list.component.scss']
+  styleUrls: ['./posts-list.component.scss'],
 })
-export class PostsListComponent implements OnInit {
+export class PostsListComponent {
+  @Input() data: Data[] = [];
 
-  constructor() { }
+  @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
-  ngOnInit(): void {
+  deletePost(id: number | undefined): void {
+    if (id) {
+      this.delete.emit(id);
+    }
   }
-
 }

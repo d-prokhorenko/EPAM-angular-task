@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { data } from '../../../data.mock';
+import { Data } from '../../models/data.model';
 
 @Component({
   selector: 'app-posts-page',
   templateUrl: './posts-page.component.html',
-  styleUrls: ['./posts-page.component.scss']
+  styleUrls: ['./posts-page.component.scss'],
 })
 export class PostsPageComponent implements OnInit {
+  data: Data[] = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    this.data = data;
   }
 
+  deletePost(id: number): void {
+    this.data = this.data.filter((post) => post.id !== id);
+  }
 }

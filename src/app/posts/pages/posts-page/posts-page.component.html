@@ -1,12 +1,2 @@
-<div class="posts">
-  <app-header></app-header>
-  <!-- <app-posts-settings></app-posts-settings> -->
-  <main>
-    <div class="container">
-      <app-posts-list></app-posts-list>
-      <!-- <app-post></app-post> -->
-      <!-- <app-post-edit-form></app-post-edit-form> -->
-    </div>
-  </main>
-  <app-footer></app-footer>
-</div>
+<app-posts-settings></app-posts-settings>
+<app-posts-list [data]="data" (delete)="deletePost($event)"></app-posts-list>

@@ -1,25 +1,17 @@
 <div class="post">
   <div class="post__img"></div>
   <div class="post__info">
-    <h2 class="post__title">Post title</h2>
+    <h2 class="post__title">{{ post?.title }}</h2>
     <p class="post__text">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla odit ipsum
-      porro consequatur accusantium, esse quam culpa pariatur iure dignissimos
-      aspernatur. Ipsa nostrum omnis sapiente excepturi blanditiis? Facilis
-      dignissimos minus earum temporibus nihil vitae provident reprehenderit
-      fugiat dolor nesciunt ratione laudantium, quasi perferendis commodi
-      itaque. Quas sint totam veniam, ducimus nam quis temporibus deleniti iure
-      omnis autem officiis doloribus, possimus debitis consequatur inventore
-      laboriosam sunt atque est mollitia ipsa. Assumenda, pariatur voluptatem
-      iusto facere quas quisquam distinctio adipisci quis minima earum veniam
-      omnis eligendi odit similique placeat facilis sunt quod tempore voluptate
-      enim debitis ipsum rerum aperiam eaque? Quo, soluta?
+      {{ post?.content }}
     </p>
-    <div class="post__date">Date</div>
-    <div class="post__author">Author</div>
+    <div class="post__date">{{ post?.date }}</div>
+    <div class="post__author">{{ post?.author }}</div>
   </div>
   <div class="post__buttons">
-    <button class="post__button" type="button">Edit</button>
+    <button (click)="editPost(post?.id)" class="post__button" type="button">
+      Edit
+    </button>
     <button class="post__button" type="button">Delete</button>
   </div>
 </div>
