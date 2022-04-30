@@ -9,7 +9,8 @@ import { FilterService } from '../../services/filter.service';
 export class PostsSettingsComponent {
   constructor(private readonly filterService: FilterService) {}
 
-  onFilter(value: string): void {
+  onFilter(e: Event, value: string): void {
+    e.preventDefault();
     this.filterService.filterValue$.next(value);
   }
 }
