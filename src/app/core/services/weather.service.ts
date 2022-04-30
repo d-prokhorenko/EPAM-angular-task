@@ -9,7 +9,7 @@ export class WeatherService {
 
   getWeather(city: string) {
     return this.http.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a73451a8444ee4e5138ed821773deab`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7a73451a8444ee4e5138ed821773deab`
     );
   }
 }
