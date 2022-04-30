@@ -8,6 +8,7 @@ import { PostComponent } from './components/post/post.component';
 import { PostEditFormComponent } from './components/post-edit-form/post-edit-form.component';
 import { CoreModule } from '../core/core.module';
 import { PostsSettingsComponent } from './components/posts-settings/posts-settings.component';
+import { FilterPipeModule } from '../shared/pipes/filter-pipe/filter-pipe.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,6 @@ import { PostsSettingsComponent } from './components/posts-settings/posts-settin
     PostEditFormComponent,
     PostsSettingsComponent,
   ],
-  imports: [CommonModule, PostsRoutingModule, CoreModule],
+  imports: [CommonModule, PostsRoutingModule, CoreModule, FilterPipeModule],
 })
 export class PostsModule {}

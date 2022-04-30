@@ -1,6 +1,9 @@
 <div class="posts">
   <ul class="posts__list">
-    <li *ngFor="let post of data" class="posts__list-item">
+    <li
+      *ngFor="let post of data | filter: filterValue"
+      class="posts__list-item"
+    >
       <article class="post">
         <div class="post__img"></div>
         <div class="post__info">

@@ -6,8 +6,14 @@
     <option value="3">3</option>
   </select>
   <div class="settings__filter">
-    <input class="settings__input" type="text" />
-    <button class="settings__filter-btn" type="button">Filter</button>
+    <input class="settings__input" type="text" #filter />
+    <button
+      class="settings__filter-btn"
+      type="button"
+      (click)="onFilter(filter.value)"
+    >
+      Filter
+    </button>
   </div>
   <label class="settings__label">
     <input type="checkbox" class="settings__checkbox" />

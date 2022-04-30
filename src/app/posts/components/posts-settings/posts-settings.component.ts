@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-posts-settings',
   templateUrl: './posts-settings.component.html',
-  styleUrls: ['./posts-settings.component.scss']
+  styleUrls: ['./posts-settings.component.scss'],
 })
-export class PostsSettingsComponent implements OnInit {
+export class PostsSettingsComponent {
+  constructor(private readonly filterService: FilterService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  onFilter(value: string): void {
+    this.filterService.filterValue$.next(value);
   }
-
 }
