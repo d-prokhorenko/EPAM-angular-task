@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Data } from '../../models/data.model';
 import { FilterService } from '../../services/filter.service';
 
@@ -7,8 +15,10 @@ import { FilterService } from '../../services/filter.service';
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.scss'],
 })
-export class PostsListComponent implements OnInit {
+export class PostsListComponent implements OnInit, OnDestroy {
   filterValue: string = '';
+
+  sub: Subscription | null = null;
 
   @Input() data: Data[] = [];
 
@@ -17,7 +27,7 @@ export class PostsListComponent implements OnInit {
   constructor(private readonly filterService: FilterService) {}
 
   ngOnInit(): void {
-    this.filterService.filterValue$.subscribe((value) => {
+    this.sub = this.filterService.filterValue$.subscribe((value) => {
       this.filterValue = value;
     });
   }
@@ -26,5 +36,9 @@ export class PostsListComponent implements OnInit {
     if (id) {
       this.delete.emit(id);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
   }
 }
