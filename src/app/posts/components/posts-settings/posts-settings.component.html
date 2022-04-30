@@ -1,0 +1,23 @@
+<div class="settings">
+  <select class="settings__select">
+    <option value="" selected disabled>Select source</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <form class="settings__filter" (submit)="onFilter($event, filter.value)">
+    <input class="settings__input" type="text" #filter />
+    <button class="settings__filter-btn" type="submit">Filter</button>
+  </form>
+  <label class="settings__label">
+    <input type="checkbox" class="settings__checkbox" />
+    <span class="settings__label-title"> Only created by me </span>
+  </label>
+  <button
+    [routerLink]="['create-post']"
+    class="settings__add-button"
+    type="button"
+  >
+    Add Article
+  </button>
+</div>
