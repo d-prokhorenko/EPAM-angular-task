@@ -1,11 +1,11 @@
 <div class="post">
   <div class="post__img"></div>
   <div class="post__info">
-    <h2 class="post__title">{{ post?.title }}</h2>
+    <h2 class="post__title">{{ post?.title | uppercase }}</h2>
     <p class="post__text">
       {{ post?.content }}
     </p>
-    <div class="post__date">{{ post?.date }}</div>
+    <div class="post__date">{{ post?.date | date: "fullDate" }}</div>
     <div class="post__author">{{ post?.author }}</div>
   </div>
   <div class="post__buttons">
