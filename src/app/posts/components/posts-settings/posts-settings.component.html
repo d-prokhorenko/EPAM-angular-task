@@ -13,5 +13,11 @@
     <input type="checkbox" class="settings__checkbox" />
     <span class="settings__label-title"> Only created by me </span>
   </label>
-  <button class="settings__add-button" type="button">Add Article</button>
+  <button
+    [routerLink]="['create-post']"
+    class="settings__add-button"
+    type="button"
+  >
+    Add Article
+  </button>
 </div>
