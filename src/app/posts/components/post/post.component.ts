@@ -35,4 +35,11 @@ export class PostComponent implements OnInit {
       this.router.navigate(['posts', 'edit', id]);
     }
   }
+
+  deletePost(id: number | undefined) {
+    if (id) {
+      this.dataService.deletePost(id);
+      this.router.navigate(['posts']);
+    }
+  }
 }

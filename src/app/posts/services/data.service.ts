@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { data } from 'src/app/data.mock';
 import { Data } from '../models/data.model';
 
@@ -7,12 +7,11 @@ import { Data } from '../models/data.model';
   providedIn: 'root',
 })
 export class DataService {
-  posts: Data[] = [];
+  posts: Data[] = data;
 
-  posts$ = new Subject<Data[]>();
+  posts$ = new BehaviorSubject<Data[]>(this.posts);
 
   getPosts() {
-    this.posts = data;
     this.posts$.next(this.posts);
   }
 
