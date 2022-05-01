@@ -11,6 +11,7 @@ import { PostsSettingsComponent } from './components/posts-settings/posts-settin
 import { FilterPipeModule } from '../shared/pipes/filter-pipe/filter-pipe.module';
 import { CreatePostFormComponent } from './components/create-post-form/create-post-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostsListItemComponent } from './components/posts-list-item/posts-list-item.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PostEditFormComponent,
     PostsSettingsComponent,
     CreatePostFormComponent,
+    PostsListItemComponent,
   ],
   imports: [
     CommonModule,

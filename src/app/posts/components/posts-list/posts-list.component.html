@@ -4,35 +4,10 @@
       *ngFor="let post of data | filter: filterValue"
       class="posts__list-item"
     >
-      <article class="post">
-        <div class="post__img"></div>
-        <div class="post__info">
-          <div class="post__info-top">
-            <h2 class="post__info-title">{{ post?.title }}</h2>
-            <div class="post__info-date">{{ post?.date | date: "short" }}</div>
-          </div>
-          <p class="post__info-text">
-            {{ post?.shortDescription }}
-          </p>
-          <a [routerLink]="[post?.id]" class="post__info-link">Read more...</a>
-        </div>
-        <div class="post__buttons">
-          <button
-            [routerLink]="['edit', post?.id]"
-            class="post__button"
-            type="button"
-          >
-            Edit
-          </button>
-          <button
-            (click)="deletePost(post?.id)"
-            class="post__button"
-            type="button"
-          >
-            Delete
-          </button>
-        </div>
-      </article>
+      <app-posts-list-item
+        [post]="post"
+        (delete)="deletePost($event)"
+      ></app-posts-list-item>
     </li>
   </ul>
   <button class="load-more">Load more</button>
