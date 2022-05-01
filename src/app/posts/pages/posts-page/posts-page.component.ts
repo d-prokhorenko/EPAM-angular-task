@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { data } from '../../../data.mock';
 import { Data } from '../../models/data.model';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-posts-page',
@@ -11,13 +11,20 @@ import { Data } from '../../models/data.model';
 export class PostsPageComponent implements OnInit {
   data: Data[] = [];
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
-    this.data = data;
+  ngOnInit() {
+    this.getPosts();
   }
 
-  deletePost(id: number): void {
-    this.data = this.data.filter((post) => post.id !== id);
+  getPosts() {
+    this.dataService.posts$.subscribe((posts) => {
+      this.data = posts;
+    });
+    this.dataService.getPosts();
+  }
+
+  deletePost(id: number) {
+    this.dataService.deletePost(id);
   }
 }

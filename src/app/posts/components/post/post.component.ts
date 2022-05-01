@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Data } from '../../models/data.model';
-import { data } from 'src/app/data.mock';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-post',
@@ -16,13 +16,17 @@ import { data } from 'src/app/data.mock';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostComponent implements OnInit {
-  post: Data | null = null;
+  post: Data | undefined = undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((p) => {
-      this.post = data.find((el) => el.id === +p['id']) || null;
+      this.post = this.dataService.getPost(+p?.['id']);
     });
   }
 
