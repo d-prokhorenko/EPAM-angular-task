@@ -32,16 +32,22 @@ export class PostsListComponent implements OnInit, OnDestroy, OnChanges {
   constructor(
     private readonly filterService: FilterService,
     private readonly cd: ChangeDetectorRef
-  ) {}
+  ) {
+    this.cd.detach();
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
+    this.cd.reattach();
+
+    setTimeout(() => {
+      this.cd.detach();
+    });
   }
 
   ngOnInit(): void {
     this.sub = this.filterService.filterValue$.subscribe((value) => {
       this.filterValue = value;
-      this.cd.markForCheck();
     });
   }
 
