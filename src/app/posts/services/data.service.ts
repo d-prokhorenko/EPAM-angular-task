@@ -12,7 +12,7 @@ export class DataService {
   posts$ = new BehaviorSubject<Data[]>(this.posts);
 
   getPosts() {
-    this.posts$.next(this.posts);
+    this.triggerSubject();
   }
 
   getPost(id: number): Data | undefined {
@@ -21,6 +21,16 @@ export class DataService {
 
   deletePost(id: number) {
     this.posts = this.posts.filter((p) => p.id !== id);
-    this.posts$.next(this.posts);
+    this.triggerSubject();
+  }
+
+  updatePost(updatedPost: Data) {
+    const oldPostIndex = this.posts.findIndex((p) => p.id === updatedPost.id);
+    this.posts[oldPostIndex] = updatedPost;
+    this.triggerSubject();
+  }
+
+  triggerSubject() {
+    this.posts$.next([...this.posts]);
   }
 }

@@ -14,6 +14,7 @@ import {
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Data } from '../../models/data.model';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-post-edit-form',
@@ -28,12 +29,7 @@ export class PostEditFormComponent implements OnInit {
     this._post = post;
   }
 
-  constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private cd: ChangeDetectorRef,
-    private view: ViewContainerRef
-  ) {}
+  constructor(private fb: FormBuilder, private dataService: DataService) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -52,7 +48,9 @@ export class PostEditFormComponent implements OnInit {
   }
 
   save() {
-    console.log(this.form);
+    const newPost = this.form.value;
+    newPost.id = this._post?.id;
+    this.dataService.updatePost(this.form.value);
   }
 
   cancel() {
