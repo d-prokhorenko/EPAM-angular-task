@@ -7,4 +7,5 @@ export interface Data {
   content: string;
   author: string;
   sourceUrl: string;
+  custom?: boolean;
 }

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { DataService } from '../../services/data.service';
 import { FilterService } from '../../services/filter.service';
 
 @Component({
@@ -8,10 +9,19 @@ import { FilterService } from '../../services/filter.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostsSettingsComponent {
-  constructor(private readonly filterService: FilterService) {}
+  constructor(
+    private readonly filterService: FilterService,
+    private readonly dataService: DataService
+  ) {}
 
   onFilter(e: Event, value: string): void {
     e.preventDefault();
     this.filterService.filterValue$.next(value);
+  }
+
+  showCustomPosts(event: Event) {
+    this.dataService.toggleCustomPosts(
+      (event.target as HTMLInputElement).checked
+    );
   }
 }

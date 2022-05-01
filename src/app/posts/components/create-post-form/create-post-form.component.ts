@@ -34,6 +34,7 @@ export class CreatePostFormComponent implements OnInit {
     if (this.form?.valid) {
       const newPost = this.form?.value;
       newPost.id = data.length;
+      newPost.custom = true;
       data.unshift(newPost);
       this.router.navigate(['posts']);
     } else {

@@ -10,7 +10,11 @@
     <button class="settings__filter-btn" type="submit">Filter</button>
   </form>
   <label class="settings__label">
-    <input type="checkbox" class="settings__checkbox" />
+    <input
+      type="checkbox"
+      class="settings__checkbox"
+      (change)="showCustomPosts($event)"
+    />
     <span class="settings__label-title"> Only created by me </span>
   </label>
   <button
