@@ -1,4 +1,6 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -16,6 +18,7 @@ import { FilterService } from '../../services/filter.service';
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostsListComponent implements OnInit, OnDestroy, OnChanges {
   filterValue: string = '';
@@ -26,7 +29,10 @@ export class PostsListComponent implements OnInit, OnDestroy, OnChanges {
 
   @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private readonly filterService: FilterService) {}
+  constructor(
+    private readonly filterService: FilterService,
+    private readonly cd: ChangeDetectorRef
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -35,6 +41,7 @@ export class PostsListComponent implements OnInit, OnDestroy, OnChanges {
   ngOnInit(): void {
     this.sub = this.filterService.filterValue$.subscribe((value) => {
       this.filterValue = value;
+      this.cd.markForCheck();
     });
   }
 

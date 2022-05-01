@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { data } from '../../../data.mock';
@@ -7,6 +7,7 @@ import { data } from '../../../data.mock';
   selector: 'app-create-post-form',
   templateUrl: './create-post-form.component.html',
   styleUrls: ['./create-post-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreatePostFormComponent implements OnInit {
   form: FormGroup | null = null;

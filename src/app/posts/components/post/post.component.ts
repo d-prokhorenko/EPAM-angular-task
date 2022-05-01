@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Data } from '../../models/data.model';
 import { data } from 'src/app/data.mock';
@@ -7,6 +13,7 @@ import { data } from 'src/app/data.mock';
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostComponent implements OnInit {
   post: Data | null = null;

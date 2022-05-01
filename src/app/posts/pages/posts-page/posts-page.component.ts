@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { data } from '../../../data.mock';
 import { Data } from '../../models/data.model';
 
@@ -6,6 +6,7 @@ import { Data } from '../../models/data.model';
   selector: 'app-posts-page',
   templateUrl: './posts-page.component.html',
   styleUrls: ['./posts-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostsPageComponent implements OnInit {
   data: Data[] = [];
