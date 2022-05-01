@@ -48,6 +48,7 @@ export class PostsListComponent implements OnInit, OnDestroy, OnChanges {
   ngOnInit(): void {
     this.sub = this.filterService.filterValue$.subscribe((value) => {
       this.filterValue = value;
+      this.cd.detectChanges();
     });
   }
 
