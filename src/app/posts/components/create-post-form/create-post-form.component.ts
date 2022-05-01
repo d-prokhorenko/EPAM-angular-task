@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { data } from '../../../data.mock';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-create-post-form',
@@ -12,7 +12,11 @@ import { data } from '../../../data.mock';
 export class CreatePostFormComponent implements OnInit {
   form: FormGroup | null = null;
 
-  constructor(private router: Router, private fb: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -33,9 +37,8 @@ export class CreatePostFormComponent implements OnInit {
   submit(): void {
     if (this.form?.valid) {
       const newPost = this.form?.value;
-      newPost.id = data.length;
       newPost.custom = true;
-      data.unshift(newPost);
+      this.dataService.createPost(newPost);
       this.router.navigate(['posts']);
     } else {
       throw new Error('form is invalid');

@@ -30,6 +30,14 @@ export class DataService {
     this.triggerSubject();
   }
 
+  createPost(post: Data) {
+    post.id = this.posts.length + 1;
+    this.posts.unshift(post);
+    console.log(this.posts);
+
+    this.triggerSubject();
+  }
+
   toggleCustomPosts(isCustom: boolean) {
     isCustom
       ? this.posts$.next(this.posts.filter((p) => p.custom))
