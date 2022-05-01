@@ -11,11 +11,7 @@
     <a [routerLink]="[post?.id]" class="post__info-link">Read more...</a>
   </div>
   <div class="post__buttons">
-    <button
-      [routerLink]="['edit', post?.id]"
-      class="post__button"
-      type="button"
-    >
+    <button (click)="editPost($event)" class="post__button" type="button">
       Edit
     </button>
     <button (click)="deletePost(post?.id)" class="post__button" type="button">

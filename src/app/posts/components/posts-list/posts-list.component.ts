@@ -57,6 +57,10 @@ export class PostsListComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
+  editPost() {
+    this.cd.detectChanges();
+  }
+
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }
