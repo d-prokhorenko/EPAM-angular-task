@@ -11,20 +11,20 @@ import { DataService } from '../../services/data.service';
 export class PostsPageComponent implements OnInit {
   data: Data[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private readonly dataService: DataService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getPosts();
   }
 
-  getPosts() {
+  getPosts(): void {
     this.dataService.posts$.subscribe((posts) => {
       this.data = posts;
     });
     this.dataService.getPosts();
   }
 
-  deletePost(id: number) {
+  deletePost(id: number): void {
     this.dataService.deletePost(id);
   }
 }

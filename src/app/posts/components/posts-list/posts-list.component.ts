@@ -58,7 +58,7 @@ export class PostsListComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  editPost() {
+  editPost(): void {
     this.cd.detectChanges();
   }
 

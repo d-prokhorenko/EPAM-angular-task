@@ -1,6 +1,6 @@
 export const data = [
   {
-    id: 1,
+    id: 0,
     title: 'Post 1',
     imageUrl: 'image URL 1',
     date: '2019-05-30',
@@ -12,7 +12,7 @@ export const data = [
     sourceUrl: 'sourceURl 1',
   },
   {
-    id: 2,
+    id: 1,
     title: 'Post 2',
     imageUrl: 'image URL 2',
     date: '2020-03-29',
@@ -24,7 +24,7 @@ export const data = [
     sourceUrl: 'sourceURl 2',
   },
   {
-    id: 3,
+    id: 2,
     title: 'Post 3',
     imageUrl: 'image URL 3',
     date: '2021-05-02',
@@ -36,7 +36,7 @@ export const data = [
     sourceUrl: 'sourceURl 3',
   },
   {
-    id: 4,
+    id: 3,
     title: 'Post 4',
     imageUrl: 'image URL 4',
     date: '2012-01-07',

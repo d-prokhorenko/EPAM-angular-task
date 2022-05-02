@@ -1,18 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DoCheck,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-  ViewContainerRef,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Data } from '../../models/data.model';
 import { DataService } from '../../services/data.service';
 
@@ -23,11 +10,14 @@ import { DataService } from '../../services/data.service';
 })
 export class PostEditFormComponent implements OnInit {
   form: FormGroup = this.fb.group({});
+
   _post: Data | null = null;
 
   @Input() set post(post: Data | null) {
     this._post = post;
   }
+
+  @Output() cancel: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder, private dataService: DataService) {}
 
@@ -35,7 +25,7 @@ export class PostEditFormComponent implements OnInit {
     this.createForm();
   }
 
-  createForm() {
+  createForm(): void {
     this.form = this.fb.group({
       title: [this._post?.title],
       imageUrl: [this._post?.imageUrl],
@@ -47,13 +37,13 @@ export class PostEditFormComponent implements OnInit {
     });
   }
 
-  save() {
+  save(): void {
     const newPost = this.form.value;
     newPost.id = this._post?.id;
     this.dataService.updatePost(this.form.value);
   }
 
-  cancel() {
-    console.log('cancel');
+  onCancel(): void {
+    this.cancel.emit();
   }
 }

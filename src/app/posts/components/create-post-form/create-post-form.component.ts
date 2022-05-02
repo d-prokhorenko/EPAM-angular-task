@@ -13,9 +13,9 @@ export class CreatePostFormComponent implements OnInit {
   form: FormGroup | null = null;
 
   constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private dataService: DataService
+    private readonly router: Router,
+    private readonly fb: FormBuilder,
+    private readonly dataService: DataService
   ) {}
 
   ngOnInit(): void {

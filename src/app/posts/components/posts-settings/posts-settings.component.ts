@@ -19,7 +19,7 @@ export class PostsSettingsComponent {
     this.filterService.filterValue$.next(value);
   }
 
-  showCustomPosts(event: Event) {
+  showCustomPosts(event: Event): void {
     this.dataService.toggleCustomPosts(
       (event.target as HTMLInputElement).checked
     );

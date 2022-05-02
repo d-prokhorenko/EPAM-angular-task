@@ -26,7 +26,7 @@ export class WeatherComponent implements OnInit {
     this.getWeather('Mozyr');
   }
 
-  getWeather(city: string) {
+  getWeather(city: string): void {
     this.weatherService.getWeather(city).subscribe((weather) => {
       console.log(weather);
       this.weatherInfo = weather;
