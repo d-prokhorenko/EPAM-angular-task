@@ -12,6 +12,13 @@ const routes: Routes = [
     redirectTo: 'posts',
     pathMatch: 'full',
   },
+  {
+    path: 'cdk-elements',
+    loadChildren: () =>
+      import('./cdk-elements/cdk-elements.module').then(
+        (m) => m.CdkElementsModule
+      ),
+  },
 ];
 
 @NgModule({

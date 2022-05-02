@@ -6,4 +6,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  isPostsPage: boolean = true;
+
+  toggleLinks(): void {
+    this.isPostsPage = !this.isPostsPage;
+  }
+}

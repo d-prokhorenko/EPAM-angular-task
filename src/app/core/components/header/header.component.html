@@ -10,6 +10,20 @@
         </div>
       </div>
       <h1 class="header__title">Random posts</h1>
+      <a
+        *ngIf="isPostsPage"
+        routerLink="cdk-elements"
+        class="header__link"
+        (click)="toggleLinks()"
+        >Show angular cdk components</a
+      >
+      <a
+        *ngIf="!isPostsPage"
+        routerLink="posts"
+        class="header__link"
+        (click)="toggleLinks()"
+        >Show posts</a
+      >
     </div>
   </div>
 </header>
