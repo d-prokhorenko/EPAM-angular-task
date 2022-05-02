@@ -5,11 +5,15 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  OnDestroy,
+  OnInit,
   Output,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Data } from '../../models/data.model';
+import { PostEditService } from '../../services/post-edit.service';
 
 @Component({
   selector: 'app-posts-list-item',
@@ -17,7 +21,9 @@ import { Data } from '../../models/data.model';
   styleUrls: ['./posts-list-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostsListItemComponent {
+export class PostsListItemComponent implements OnInit, OnDestroy {
+  sub: Subscription | null = null;
+
   @Input() post: Data | null = null;
 
   @Output() delete: EventEmitter<number> = new EventEmitter<number>();
@@ -29,7 +35,20 @@ export class PostsListItemComponent {
   @ViewChild('view', { read: ViewContainerRef }) view: ViewContainerRef | null =
     null;
 
-  constructor(private readonly cfr: ComponentFactoryResolver) {}
+  constructor(
+    private readonly cfr: ComponentFactoryResolver,
+    private readonly postEditService: PostEditService
+  ) {}
+
+  ngOnInit(): void {
+    this.sub = this.postEditService.isCancelEditPost$.subscribe(
+      (isCancelEditPost) => {
+        if (isCancelEditPost) {
+          this.cancelEdit();
+        }
+      }
+    );
+  }
 
   async editPost(): Promise<void> {
     (this.editPostButton?.nativeElement as HTMLButtonElement).disabled = true;
@@ -55,5 +74,9 @@ export class PostsListItemComponent {
   cancelEdit(): void {
     this.view?.clear();
     (this.editPostButton?.nativeElement as HTMLButtonElement).disabled = false;
+  }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
   }
 }

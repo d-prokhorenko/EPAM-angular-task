@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Data } from '../../models/data.model';
 import { DataService } from '../../services/data.service';
+import { PostEditService } from '../../services/post-edit.service';
 
 @Component({
   selector: 'app-post-edit-form',
@@ -17,9 +18,11 @@ export class PostEditFormComponent implements OnInit {
     this._post = post;
   }
 
-  @Output() cancel: EventEmitter<void> = new EventEmitter<void>();
-
-  constructor(private fb: FormBuilder, private dataService: DataService) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly dataService: DataService,
+    private readonly postEditService: PostEditService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -44,6 +47,6 @@ export class PostEditFormComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.cancel.emit();
+    this.postEditService.isCancelEditPost$.next(true);
   }
 }
