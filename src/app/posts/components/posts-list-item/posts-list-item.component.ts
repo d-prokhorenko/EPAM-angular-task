@@ -75,7 +75,10 @@ export class PostsListItemComponent implements OnInit, OnDestroy {
 
   cancelEdit(): void {
     this.view?.clear();
-    (this.editPostButton?.nativeElement as HTMLButtonElement).disabled = false;
+    if (this.editPostButton?.nativeElement) {
+      (this.editPostButton?.nativeElement as HTMLButtonElement).disabled =
+        false;
+    }
   }
 
   ngOnDestroy(): void {
