@@ -1,0 +1,15 @@
+<div class="posts">
+  <ul class="posts__list">
+    <li
+      *ngFor="let post of data | filter: filterValue"
+      class="posts__list-item"
+    >
+      <app-posts-list-item
+        [post]="post"
+        (delete)="deletePost($event)"
+        (edit)="editPost()"
+      ></app-posts-list-item>
+    </li>
+  </ul>
+  <button class="load-more">Load more</button>
+</div>

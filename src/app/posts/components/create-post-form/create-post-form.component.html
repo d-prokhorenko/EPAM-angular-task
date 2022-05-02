@@ -1,0 +1,69 @@
+<ng-container *ngIf="form">
+  <form [formGroup]="form" class="create-form" (submit)="submit()">
+    <div class="create-form__left">
+      <label class="create-form__label">
+        <span class="create-form__label-title">Heading</span>
+        <input formControlName="title" class="create-form__input" type="text" />
+      </label>
+      <label class="create-form__label">
+        <span class="create-form__label-title">Short description</span>
+        <input
+          formControlName="shortDescription"
+          class="create-form__input"
+          type="text"
+        />
+      </label>
+      <label class="create-form__label">
+        <span class="create-form__label-title">Content</span>
+        <textarea
+          formControlName="content"
+          class="create-form__textarea"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </label>
+    </div>
+    <div class="create-form__right">
+      <label class="create-form__label">
+        <span class="create-form__label-title">Image</span>
+        <input
+          formControlName="imageUrl"
+          class="create-form__input"
+          type="text"
+        />
+      </label>
+      <label class="create-form__label">
+        <span class="create-form__label-title">Date</span>
+        <input formControlName="date" class="create-form__input" type="date" />
+      </label>
+      <label class="create-form__label">
+        <span class="create-form__label-title">Author</span>
+        <input
+          formControlName="author"
+          class="create-form__input"
+          type="text"
+        />
+      </label>
+      <label class="create-form__label">
+        <span class="create-form__label-title">Source URL</span>
+        <input
+          formControlName="sourceUrl"
+          class="create-form__input"
+          type="text"
+        />
+      </label>
+      <div class="create-form__buttons">
+        <button
+          class="create-form__button"
+          type="submit"
+          [disabled]="form.invalid"
+        >
+          Save
+        </button>
+        <button (click)="cancel()" class="create-form__button" type="button">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</ng-container>

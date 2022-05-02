@@ -1,0 +1,47 @@
+.create-form {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border: 1px solid #000;
+
+  &__left,
+  &__right {
+    width: 45%;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__label-title {
+    display: block;
+  }
+
+  &__input {
+    width: 100%;
+
+    &.ng-invalid {
+      border: 1px solid red;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 137px;
+
+    &.ng-invalid {
+      border: 1px solid red;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    width: 150px;
+    height: 50px;
+  }
+}
