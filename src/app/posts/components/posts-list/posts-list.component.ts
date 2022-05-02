@@ -53,7 +53,7 @@ export class PostsListComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   deletePost(id: number | undefined): void {
-    if (id) {
+    if (typeof id === 'number') {
       this.delete.emit(id);
     }
   }

@@ -66,7 +66,9 @@ export class PostsListItemComponent implements OnInit, OnDestroy {
   }
 
   deletePost(id: number | undefined): void {
-    if (id) {
+    console.log(id);
+
+    if (typeof id === 'number') {
       this.delete.emit(id);
     }
   }
