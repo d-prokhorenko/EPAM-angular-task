@@ -5,6 +5,7 @@ import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.c
 import { PortalComponent } from './components/portal/portal.component';
 import { TableComponent } from './components/table/table.component';
 import { TreeComponent } from './components/tree/tree.component';
+import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
 import { CdkPageComponent } from './pages/cdk-page/cdk-page.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'tree', component: TreeComponent },
       { path: 'portal', component: PortalComponent },
       { path: 'drag-and-drop', component: DragAndDropComponent },
+      { path: 'virtual-scroll', component: VirtualScrollComponent },
     ],
   },
 ];

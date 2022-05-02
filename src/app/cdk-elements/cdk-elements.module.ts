@@ -16,6 +16,8 @@ import { PortalModule } from '@angular/cdk/portal';
 import { PortalComponent } from './components/portal/portal.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.c
     TreeComponent,
     PortalComponent,
     DragAndDropComponent,
+    VirtualScrollComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +39,7 @@ import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.c
     MatButtonModule,
     PortalModule,
     DragDropModule,
+    ScrollingModule,
   ],
 })
 export class CdkElementsModule {}
