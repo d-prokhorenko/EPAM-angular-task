@@ -28,6 +28,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MenuComponent } from './components/menu/menu.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { MenuComponent } from './components/menu/menu.component';
     DateComponent,
     DialogComponent,
     MenuComponent,
+    SliderComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +62,7 @@ import { MenuComponent } from './components/menu/menu.component';
     MatNativeDateModule,
     MatDialogModule,
     MatMenuModule,
+    MatSliderModule,
   ],
 })
 export class CdkElementsModule {}

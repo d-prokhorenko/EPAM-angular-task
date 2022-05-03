@@ -6,6 +6,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PortalComponent } from './components/portal/portal.component';
+import { SliderComponent } from './components/slider/slider.component';
 import { TableComponent } from './components/table/table.component';
 import { TreeComponent } from './components/tree/tree.component';
 import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'date', component: DateComponent },
       { path: 'dialog', component: DialogComponent },
       { path: 'menu', component: MenuComponent },
+      { path: 'slider', component: SliderComponent },
     ],
   },
 ];
