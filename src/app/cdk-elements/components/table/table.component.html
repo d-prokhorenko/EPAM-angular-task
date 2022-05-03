@@ -3,29 +3,29 @@ Filter
   <input (keyup)="applyFilter($event)" matInput placeholder="filter" />
 </mat-form-field>
 
-<table cdk-table [dataSource]="dataSource">
+<table cdk-table matSort [dataSource]="dataSource">
   <!-- Position Column -->
   <ng-container cdkColumnDef="position">
-    <th cdk-header-cell *cdkHeaderCellDef>No.</th>
+    <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>No.</th>
     <td cdk-cell *cdkCellDef="let element">{{ element.position }}</td>
     <td cdk-footer-cell *cdkFooterCellDef>footer</td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container cdkColumnDef="name">
-    <th cdk-header-cell *cdkHeaderCellDef>Name</th>
+    <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Name</th>
     <td cdk-cell *cdkCellDef="let element">{{ element.name }}</td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container cdkColumnDef="weight">
-    <th cdk-header-cell *cdkHeaderCellDef>Weight</th>
+    <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Weight</th>
     <td cdk-cell *cdkCellDef="let element">{{ element.weight }}</td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container cdkColumnDef="symbol">
-    <th cdk-header-cell *cdkHeaderCellDef>Symbol</th>
+    <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Symbol</th>
     <td cdk-cell *cdkCellDef="let element">{{ element.symbol }}</td>
   </ng-container>
 

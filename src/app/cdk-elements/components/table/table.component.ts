@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 export interface PeriodicElement {
   name: string;
@@ -26,9 +27,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent {
+export class TableComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  @ViewChild(MatSort) sort!: MatSort;
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
