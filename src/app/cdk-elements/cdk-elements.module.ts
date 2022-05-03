@@ -26,6 +26,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     VirtualScrollComponent,
     DateComponent,
     DialogComponent,
+    MenuComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +58,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatNativeDateModule,
     MatDialogModule,
+    MatMenuModule,
   ],
 })
 export class CdkElementsModule {}

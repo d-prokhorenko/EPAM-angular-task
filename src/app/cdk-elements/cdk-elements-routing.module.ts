@@ -4,6 +4,7 @@ import { AccordionComponent } from './components/accordion/accordion.component';
 import { DateComponent } from './components/date/date.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { PortalComponent } from './components/portal/portal.component';
 import { TableComponent } from './components/table/table.component';
 import { TreeComponent } from './components/tree/tree.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'virtual-scroll', component: VirtualScrollComponent },
       { path: 'date', component: DateComponent },
       { path: 'dialog', component: DialogComponent },
+      { path: 'menu', component: MenuComponent },
     ],
   },
 ];
