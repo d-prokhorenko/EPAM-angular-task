@@ -1,3 +1,8 @@
+Filter
+<mat-form-field>
+  <input (keyup)="applyFilter($event)" matInput placeholder="filter" />
+</mat-form-field>
+
 <table cdk-table [dataSource]="dataSource">
   <!-- Position Column -->
   <ng-container cdkColumnDef="position">
