@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccordionComponent } from './components/accordion/accordion.component';
+import { DateComponent } from './components/date/date.component';
 import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
 import { PortalComponent } from './components/portal/portal.component';
 import { TableComponent } from './components/table/table.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'portal', component: PortalComponent },
       { path: 'drag-and-drop', component: DragAndDropComponent },
       { path: 'virtual-scroll', component: VirtualScrollComponent },
+      { path: 'date', component: DateComponent },
     ],
   },
 ];

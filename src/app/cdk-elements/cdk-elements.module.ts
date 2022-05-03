@@ -18,6 +18,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
+import { DateComponent } from './components/date/date.component';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -28,6 +34,7 @@ import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scro
     PortalComponent,
     DragAndDropComponent,
     VirtualScrollComponent,
+    DateComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +47,10 @@ import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scro
     PortalModule,
     DragDropModule,
     ScrollingModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
 })
 export class CdkElementsModule {}
