@@ -31,6 +31,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatMenuModule,
     MatSliderModule,
     MatSortModule,
+    MatPaginatorModule,
   ],
 })
 export class CdkElementsModule {}

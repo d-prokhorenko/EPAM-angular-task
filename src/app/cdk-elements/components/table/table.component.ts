@@ -1,6 +1,7 @@
-import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface PeriodicElement {
   name: string;
@@ -33,8 +34,11 @@ export class TableComponent implements AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   applyFilter(event: Event) {
